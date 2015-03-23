@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :groups
+  resources :groups do
+    resources :certs
+  end
+
+  resources :certs do
+    resources :claimants
+  end
+
   resources :users
 
   get '/log-in' => 'sessions#new'

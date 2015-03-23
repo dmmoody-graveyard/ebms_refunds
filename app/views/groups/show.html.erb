@@ -3,3 +3,12 @@
 <p>
   <%= @group.group_number %>
 </p>
+
+<%= link_to "New Member", new_group_cert_path(@group) %>
+
+
+<ul class="lead list-unstyled">
+  <% @certs.each do |cert| %>
+  <li><%= cert.first_name %> <%= cert.last_name %></li>
+  <% end %>
+</ul>

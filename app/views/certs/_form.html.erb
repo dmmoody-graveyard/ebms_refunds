@@ -1,0 +1,11 @@
+<%= form_for [@group, @cert] do |f| %>
+  <%= f.label :cert_number %>
+  <%= f.text_field :cert_number %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :member_id %>
+  <%= f.text_field :member_id %>
+  <%= f.submit %>
+<% end %>

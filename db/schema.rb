@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318130502) do
+ActiveRecord::Schema.define(version: 20150323141309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "certs", force: :cascade do |t|
+    t.integer  "cert_number"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "group_id"
+  end
+
+  create_table "claimants", force: :cascade do |t|
+    t.integer  "claimant_number"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "cert_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "group_number"
