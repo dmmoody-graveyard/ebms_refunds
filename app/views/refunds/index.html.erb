@@ -1,0 +1,7 @@
+<h1>All Outstanding Refunds</h1>
+
+<ul class="lead list-unstyled">
+  <% @refunds.each do |refund| %>
+    <li><%= refund.id %> - <%= refund.amount_requested %></li>
+  <% end %>
+</ul>

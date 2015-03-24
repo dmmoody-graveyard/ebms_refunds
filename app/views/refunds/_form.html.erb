@@ -1,0 +1,20 @@
+<%= form_for @refund do |f| %>
+  <%= f.label :amount_requested %>
+  <%= f.number_field :amount_requested %>
+  <%= f.label :reason %>
+  <%= f.text_field :reason %>
+  <%= f.label :tin %>
+  <%= f.select(:provider_id) do %>
+    <% @providers.each do |provider| -%>
+      <%= content_tag(:option, provider.name, value: provider.id) %>
+    <% end %>
+  <% end %>
+  <%= f.select(:claimant_id) do %>
+    <% @claimants.each do |claimant| -%>
+      <%= content_tag(:option, claimant.last_name, value: claimant.id) %>
+    <% end %>
+  <% end %>
+
+
+  <%= f.submit %>
+<% end %>

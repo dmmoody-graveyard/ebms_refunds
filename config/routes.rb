@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :providers
-
+  resources :refunds
   resources :users
 
   get '/log-in' => 'sessions#new'

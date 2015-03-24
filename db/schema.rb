@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324131255) do
+ActiveRecord::Schema.define(version: 20150324133559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20150324131255) do
     t.string   "name"
     t.string   "phone"
     t.string   "tin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refunds", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.integer  "claimant_id"
+    t.float    "amount_requested"
+    t.date     "date_received"
+    t.float    "amount_received"
+    t.date     "date_posted"
+    t.text     "reason"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
