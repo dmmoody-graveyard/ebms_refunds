@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root :to => 'groups#index'
+
   resources :groups do
     resources :certs
   end
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   resources :certs do
     resources :claimants
   end
+
+  resources :providers
 
   resources :users
 

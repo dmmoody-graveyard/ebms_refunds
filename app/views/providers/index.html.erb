@@ -1,0 +1,7 @@
+<h1>Providers</h1>
+
+<ul class='lead list-unstyled'>
+  <% @providers.each do |provider| %>
+    <li><%= link_to provider.name, provider_path(provider) %> - <%= provider.tin %></li>
+  <% end %>
+</ul>
