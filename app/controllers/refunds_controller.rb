@@ -1,4 +1,6 @@
 class RefundsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
+  
   def index
     @refunds = Refund.all
   end

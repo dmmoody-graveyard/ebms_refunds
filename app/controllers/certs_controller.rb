@@ -1,4 +1,6 @@
 class CertsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
+
   def new
     @group = Group.find(params[:group_id])
     @cert = @group.certs.new
