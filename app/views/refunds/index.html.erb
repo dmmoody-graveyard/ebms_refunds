@@ -2,6 +2,6 @@
 
 <ul class="lead list-unstyled">
   <% @refunds.each do |refund| %>
-    <li><%= refund.id %> - <%= refund.amount_requested %> - <%= refund.provider.name %> - <%= refund.claimant.first_name %> <%= refund.claimant.last_name %></li>
+    <li><%= refund.id %> - <%= refund.amount_requested %> - <%= refund.provider.name %> - <%= refund.claimant.first_name %> <%= refund.claimant.last_name %> <%= link_to "Edit", edit_refund_path(refund) %></li>
   <% end %>
 </ul>
