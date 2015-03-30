@@ -8,6 +8,7 @@ class RefundsController < ApplicationController
   def new
     @refund = Refund.new
     @providers = Provider.all
+    @provider = Provider.search(params[:search])
     @claimants = Claimant.all
   end
 

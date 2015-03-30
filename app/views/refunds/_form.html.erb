@@ -1,20 +1,23 @@
 <%= form_for @refund do |f| %>
-  <%= f.label :amount_requested %>
-  <%= f.number_field :amount_requested %>
-  <%= f.label :reason %>
-  <%= f.text_field :reason %>
-  <%= f.label :tin %>
-  <%= f.select(:provider_id) do %>
-    <% @providers.each do |provider| -%>
-      <%= content_tag(:option, provider.name, value: provider.id) %>
-    <% end %>
-  <% end %>
-  <%= f.select(:claimant_id) do %>
-    <% @claimants.each do |claimant| -%>
-      <%= content_tag(:option, claimant.last_name, value: claimant.id) %>
-    <% end %>
-  <% end %>
+<div class="col-md-5">
+  <div class="form-group">
+    <%= f.label :amount_requested %>
+    <%= f.number_field :amount_requested, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reason %>
+    <%= f.text_area :reason, class: "form-control" %>
+  </div>
 
+  <%= f.submit "Submit", class: 'btn btn-default' %>
+</div>
+<% end %>
 
-  <%= f.submit %>
+<h2>Provider</h2>
+
+<%= form_tag new_refund_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
