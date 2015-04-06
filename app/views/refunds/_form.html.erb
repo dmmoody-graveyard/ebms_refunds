@@ -1,3 +1,13 @@
+
+
+
+<%= form_tag new_refund_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter Provider TIN" %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <%= form_for @refund do |f| %>
 <div class="col-md-5">
   <div class="form-group">
@@ -13,11 +23,4 @@
 </div>
 <% end %>
 
-<h2>Provider</h2>
 
-<%= form_tag new_refund_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
