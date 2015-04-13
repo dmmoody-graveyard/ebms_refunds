@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   root :to => 'groups#index'
 
   resources :groups do
-    resources :certs
-  end
-
-  resources :certs do
-    resources :claimants
+    resources :certs, :shallow => true do
+      resources :claimants, :shallow => true
+    end
   end
 
   resources :providers

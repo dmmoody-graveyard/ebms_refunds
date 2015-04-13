@@ -6,6 +6,11 @@ class CertsController < ApplicationController
     @cert = @group.certs.new
   end
 
+  def show
+    @cert = Cert.find(params[:id])
+    @claimants = @cert.claimants.all
+  end
+
   def create
     @group = Group.find(params[:group_id])
     @cert = @group.certs.new(cert_params)

@@ -9,12 +9,6 @@
 
 <ul class="lead list-unstyled">
   <% @certs.each do |cert| %>
-  <li><%= cert.first_name %> <%= cert.last_name %>
-    <ul>
-      <% cert.claimants.each do |claimant| %>
-        <li><%= claimant.first_name %> <%= claimant.last_name %></li>
-      <% end %>
-    </ul>
-  </li>
+    <li><%= link_to cert.cert_number.to_s + " " + cert.last_name + ", " + cert.first_name, cert_path(cert) %></li>
   <% end %>
 </ul>

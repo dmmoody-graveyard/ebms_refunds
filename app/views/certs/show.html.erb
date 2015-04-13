@@ -1,0 +1,9 @@
+<h3><%= @cert.first_name %> <%= @cert.last_name %></h3>
+
+<%= link_to "New Claimant", new_cert_claimant_path(@cert) %>
+
+<ul class="lead">
+  <% @claimants.each do |claimant| %>
+    <li><%= link_to claimant.claimant_number.to_s + " " + claimant.first_name + " " + claimant.last_name, claimant_path(claimant) %></li>
+  <% end %>
+</ul>
