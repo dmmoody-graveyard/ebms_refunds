@@ -3,7 +3,6 @@ class GroupsController < ApplicationController
   
   def index
     @groups = Group.all
-    render :groups
   end
 
   def new

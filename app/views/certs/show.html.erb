@@ -4,6 +4,6 @@
 
 <ul class="lead">
   <% @claimants.each do |claimant| %>
-    <li><%= link_to claimant.claimant_number.to_s + " " + claimant.first_name + " " + claimant.last_name, claimant_path(claimant) %></li>
+    <li><%= claimant.claimant_number %> | <%= link_to claimant.first_name + " " + claimant.last_name, claimant_path(claimant) %></li>
   <% end %>
 </ul>
