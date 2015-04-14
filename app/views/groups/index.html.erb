@@ -1,11 +1,7 @@
 <h1>Groups</h1>
 
-<ul class='lead list-unstyled'>
-  <% @groups.each do |group| %>
-    <li><%= group.group_number %> | <%= link_to group.name, group_path(group) %></li>
-  <% end %>
-</ul>
+<%= link_to 'Add a new group', new_group_path(@group), id: "new-group", remote: true %>
 
-<p>
-  <%= link_to 'Add a new group', new_group_path(@group) %>
-</p>
+<ul class='lead list-unstyled' id='group-list'>
+  <%= render @groups %>
+</ul>

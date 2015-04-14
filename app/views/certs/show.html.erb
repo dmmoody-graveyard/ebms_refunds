@@ -1,6 +1,8 @@
+<%= link_to "Return to Group", group_path(@cert.group_id) %>
 <h3><%= @cert.first_name %> <%= @cert.last_name %></h3>
 
 <%= link_to "New Claimant", new_cert_claimant_path(@cert) %>
+
 
 <ul class="lead">
   <% @claimants.each do |claimant| %>

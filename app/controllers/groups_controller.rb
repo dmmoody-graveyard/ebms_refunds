@@ -12,10 +12,15 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to groups_path
-      flash[:notice] = "Successfully saved."
+      respond_to do |format|
+        format.html { redirect_to groups_path }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
