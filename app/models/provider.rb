@@ -4,11 +4,11 @@ class Provider < ActiveRecord::Base
   validates :phone, :presence => true
   validates :tin, :presence => true
 
-  def self.search(search)
-    if search
-      where('tin LIKE ?', "%#{search}%")
+  def self.search(provider)
+    if provider
+      find_by(tin: "%#{provider}%")
     else
-      nil
+      scoped
     end
   end
 end

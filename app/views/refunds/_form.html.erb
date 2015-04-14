@@ -3,13 +3,15 @@
 
 <%= form_tag new_refund_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Enter Provider TIN" %>
+    <%= text_field_tag :provider, params[:provider], placeholder: "Enter Provider TIN" %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
 
-<% for provider in @providers %>
-  <%= provider.name %>
+<% if @providers %>
+  <%= @providers.name %>
+<% else %>
+  <%= link_to "New Provider", new_provider_path %>
 <% end %>
 
 
