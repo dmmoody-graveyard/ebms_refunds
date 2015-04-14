@@ -8,7 +8,10 @@
   </p>
 <% end %>
 
-<%= @group.name %>
+<% for provider in @providers %>
+  <%= provider.name %>
+<% end %>
+
 
 <%= form_for @refund do |f| %>
   <div class="col-md-5">
