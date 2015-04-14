@@ -17,10 +17,15 @@ class ClaimantsController < ApplicationController
     @cert = Cert.find(params[:cert_id])
     @claimant = @cert.claimants.new(claimant_params)
     if @claimant.save
-      flash[:notice] = "Claimant was successfully added"
-      redirect_to cert_path(@claimant.cert)
+      respond_to do |format|
+        format.html { redirect_to cert_path(@claimant.cert) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 

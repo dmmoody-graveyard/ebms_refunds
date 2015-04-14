@@ -16,10 +16,15 @@ class CertsController < ApplicationController
     @cert = @group.certs.new(cert_params)
     if @cert.save
       @claimant = @cert.claimants.create(:first_name => @cert.first_name, :last_name => @cert.last_name, :claimant_number => '001')
-      flash[:notice] = "The member was added"
-      redirect_to group_path(@cert.group)
+      respond_to do |format|
+        format.html { redirect_to group_path(@cert.group) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 

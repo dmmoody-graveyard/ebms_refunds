@@ -5,12 +5,8 @@
   <%= @group.group_number %>
 </p>
 
-<%= link_to "New Member", new_group_cert_path(@group) %>
+<%= link_to "New Member", new_group_cert_path(@group), id: "new-cert", remote: true %>
 
-
-
-<ul class="lead list-unstyled">
-  <% @certs.each do |cert| %>
-    <li><%= cert.cert_number %> | <%= link_to cert.last_name + ", " + cert.first_name, cert_path(cert) %></li>
-  <% end %>
+<ul class="lead list-unstyled" id="cert-list">
+  <%= render @certs %>
 </ul>
