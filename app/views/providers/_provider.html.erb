@@ -1,0 +1,7 @@
+<div id="add-provider">
+  <% if @providers %>
+    <%= @providers.name %>
+  <% else %>
+    <%= link_to "New Provider", new_provider_path, id: "new-provider", remote: true %>
+  <% end %>
+</div>

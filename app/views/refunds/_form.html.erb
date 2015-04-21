@@ -1,20 +1,18 @@
 
 
 
-<%= form_tag new_refund_path, :method => 'get' do %>
+<%= form_tag new_refund_path, remote: true, :method => 'get' do %>
   <p>
     <%= text_field_tag :provider, params[:provider], placeholder: "Enter Provider TIN" %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
 
-<% if @providers %>
-  <%= @providers.name %>
-<% else %>
-  <%= link_to "New Provider", new_provider_path %>
+<%= render @provider %>
+
+<% if @new_provider %>
+<%= @new_provider.name %> 'here is the shit'
 <% end %>
-
-
 <%= form_for @refund do |f| %>
   <div class="col-md-5">
     <div class="form-group">

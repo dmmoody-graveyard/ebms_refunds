@@ -9,7 +9,6 @@ class RefundsController < ApplicationController
     @refund = Refund.new
     @providers = Provider.find_by(tin: params[:provider])
     @provider = Provider.new
-    @claimants = Claimant.all
   end
 
   def create

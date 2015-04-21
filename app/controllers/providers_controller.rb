@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   
   def index
     @providers = Provider.all
@@ -12,10 +12,15 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.new(provider_params)
     if @provider.save
-      flash[:notice] = "The provider was added"
-      redirect_to providers_path(@provider)
+      respond_to do |format|
+        format.html { redirect_to providers_path }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
